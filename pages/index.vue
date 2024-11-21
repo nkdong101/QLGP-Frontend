@@ -573,7 +573,7 @@ export default {
 
   .form-info {
     height: 100%;
-    /deep/ .form-info-c {
+    ::v-deep .form-info-c {
       height: 100%;
       display: flex;
       // overflow-y: auto;
@@ -633,7 +633,7 @@ export default {
 }
 
 @media only screen and (max-width: 800px) {
-  /deep/#div_Couple_form {
+  ::v-deep#div_Couple_form {
     width: 100%;
     margin-bottom: 5px;
     overflow-x: scroll;
@@ -643,7 +643,7 @@ export default {
     }
   }
 
-  /deep/#div_siblings_form {
+  ::v-deep#div_siblings_form {
     width: 100%;
     margin-bottom: 5px;
     overflow-x: scroll;
