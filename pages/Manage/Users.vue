@@ -14,18 +14,21 @@
         <div style="display: flex; align-items: center">
           <el-button
             @click="form.ShowForm('Sửa tài khoản', row)"
-            type="warning"
+            type="warning"  class="icon-btn"
             v-if="pagePermission.edit && row.userLevel != 0"
           >
             <i class="fa fa-edit"></i>
           </el-button>
-          <el-button
-            @click="form.Delete(row)"
-            v-if="pagePermission.delete  && row.userLevel != 1"
+          <el-tooltip class="item" effect="dark" content="Cấp tài khoản" placement="top-end">
+            <el-button   class="icon-btn"
+            @click="CapTK(row)"
+            v-if="pagePermission.CreateAcc  && (row.userLevel == 1 || row.userLevel == 0)"
             type="danger"
           >
-            <i class="fa fa-times"></i>
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
           </el-button>
+    </el-tooltip>
+          
         </div>
       </template>
     </TablePaging>
@@ -183,12 +186,16 @@ export default {
             data: "button",
             fix: "right",
             sortable: false,
+            width: 70,
           }),
         ],
       },
     };
   },
   methods: {
+    CapTK(row){
+      console.log("CapTK",row)
+    },
     loadData() {
       this.$refs.tp.LoadData(true);
     },

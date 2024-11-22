@@ -106,19 +106,35 @@
     >
      
     </el-popover> -->
-    <use cursor="pointer" class="colored-use"  @click="abc" v-if="data.Hongoai_id > 0" x="200" y="10" xlink:href="#base_up"></use>
+    <!-- <use cursor="pointer" class="colored-use"  @click="abc" v-if="data.Hongoai_id > 0" x="200" y="10" xlink:href="#base_up"></use> -->
 
     <foreignObject
-     @click="handClickdot"
+      v-if="user.userLevel == 1 || data.User_id == user.AccountSerial"
       cursor="pointer"
       :style="{
         fontSize: '14px',
       }"
      x="210"
       y="95"
-      width="30"
-      height="30"
-      ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      width="20"
+      height="20"
+      ><i  @click="handClickdot" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </foreignObject>
+
+    <foreignObject
+    v-if="!data.User_id && user.userLevel == 1"
+      cursor="pointer"
+      :style="{
+        fontSize: '14px',
+      }"
+      x="185"
+      y="95"
+      width="20"
+      height="20"
+      >
+      <!-- <el-tooltip class="item" effect="dark" content="Cấp tài khoản" placement="top-end"> -->
+        <i @click="clickCreateAcc" class="fa fa-user-plus" aria-hidden="true"></i>
+      <!-- </el-tooltip> -->
     </foreignObject>
     <!-- <use
       @click="handClickdot"
@@ -143,9 +159,13 @@ export default {
     },
   },
   methods: {
-    abc(){
-      this.$emit('findHoNgoai',this.data);
+    clickCreateAcc(){
+      // console.log(this)
+      this.$emit('CreateAcc',this.data);
     },
+    // abc(){
+    //   this.$emit('findHoNgoai',this.data);
+    // },
     handClickdot() {
       // console.log("handClickdotdotdotdot");
       // console.log(this.$refs['pop'+this.data.id])

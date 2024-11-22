@@ -14,7 +14,7 @@ export default class User {
     /** @type {string} - description */
     CMND;
     /** @type {string} - description */
-    UserLevel_id;
+    userLevel;
     /** @type {string} - description */
     BirthDay;
     /** @type {string} - description */

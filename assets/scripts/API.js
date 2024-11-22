@@ -1,5 +1,6 @@
 export var linkAPI = 'http://localhost:2002/';
 
+// linkAPI = 'http://localhost:62008/';
 // linkAPI = 'http://demo.quanlynoibo.com:8115/';
 
 
