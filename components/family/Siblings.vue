@@ -199,7 +199,7 @@ export default {
                 method: "delete",
                 url: API.Giapha + "/" + obj.Id,
                 // params: Ơ,
-                action: function (re) {
+                action:  (re) => {
                   ShowMessage("Xóa thành công");
                   this.form.visible = false;
                   EventBus.$emit("reloadFormFam", this.obj.Curent.Id);
